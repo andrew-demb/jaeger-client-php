@@ -8,5 +8,5 @@ use Jaeger\Span\SpanInterface;
 
 interface TracerInterface extends FinishableInterface
 {
-    public function start(string $operationName, array $tags = [], SpanContext $context = null): SpanInterface;
+    public function start(string $operationName, array $tags = [], ?SpanContext $context = null): SpanInterface;
 }

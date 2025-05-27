@@ -89,7 +89,7 @@ class Tracer implements
         return $span;
     }
 
-    public function start(string $operationName, array $tags = [], SpanContext $userContext = null): SpanInterface
+    public function start(string $operationName, array $tags = [], ?SpanContext $userContext = null): SpanInterface
     {
         if (null === ($context = $userContext ?: $this->manager->getContext())) {
             $span = $this->factory->parent($this, $operationName, $this->debugId, $tags);
@@ -101,7 +101,7 @@ class Tracer implements
         return $span;
     }
 
-    public function getContext(SpanContext $userContext = null): ?SpanContext
+    public function getContext(?SpanContext $userContext = null): ?SpanContext
     {
         return $this->manager->getContext();
     }
